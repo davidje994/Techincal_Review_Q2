@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-09-12T12:04:16Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: wordpress
+  name: wordpress
+  namespace: default
+  resourceVersion: "36581"
+  selfLink: /api/v1/namespaces/default/services/wordpress
+  uid: 5d8efe8f-a0c7-4138-b520-0604614b866c
+spec:
+  clusterIP: 10.112.8.41
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30476
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: wordpress
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.107.103.219
